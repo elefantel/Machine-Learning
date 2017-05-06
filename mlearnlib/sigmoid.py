@@ -1,9 +1,10 @@
+import numpy as np
 import math
 
 #sigmoid = 1 / (1 + e^-x)
-def sigmoid(x):
-    data = []
+#Used to normalize values
+def sigmoid(x, derivative=False):
 
-    for item in x:
-        data.append(1 / (1 + math.exp(-item)))
-    return data
+    if derivative:
+        return x * (1 - x)
+    return 1 / (1 + np.exp(-x))
